@@ -1,6 +1,7 @@
 # @evehr/capacitor-jailbreak-root-detection
 
-Jailbreak Root detection plugin for capacitor.
+Jailbreak Root detection plugin for capacitor. Supports Capacior 5 and 6.
+a clone of @evehr/capacitor-jailbreak-root-detection repository.
 
 ## Install
 
