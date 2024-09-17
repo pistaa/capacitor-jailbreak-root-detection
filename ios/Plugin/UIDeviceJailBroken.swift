@@ -70,7 +70,8 @@ private struct JailBrokenHelper {
             "/",
             "/root/",
             "/private/",
-            "/jb/"
+            "/jb/",
+            "/basebin/"
         ]
     }
     static func isDirectoriesWriteable() -> Bool {
@@ -192,13 +193,19 @@ private struct JailBrokenHelper {
             "/Applications/RockApp.app",
             "/Applications/SBSettings.app",
             "/Applications/WinterBoard.app",
+            "/Applications/Dopamine.app",
             
             "/var/.communication/launchd_to_boomerang",
             "/var/.communication/boomerang_to_launchd",
-            "/usr/lib/systemhook.dylib"
+            "/usr/lib/systemhook.dylib",
+            "/basebin/libjailbreak.dylib",
+            "/var/.boot_info.plist",
+            "/basebin/jbctl",
+            "/usr/bin/dpkg",
+            "/basebin/LaunchDaemons/com.opa334.jailbreakd.plist"
         ]
     }
-
+    
     static func checkDYLD() -> Bool {
         let suspiciousLibraries = [
             "FridaGadget",
