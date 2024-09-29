@@ -16,6 +16,12 @@ public class CapacitorJailbreakRootDetectionPlugin: CAPPlugin {
         ])
     }
 
+    @objc func isFridaRunning(_ call: CAPPluginCall) {
+        call.resolve([
+            "result": UIDevice.current.isFridaRunning
+        ])
+    }
+
     @objc func isSimulator(_ call: CAPPluginCall) {
         call.resolve([
             "result": UIDevice.current.isSimulator

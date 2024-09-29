@@ -15,6 +15,11 @@ export class CapacitorJailbreakRootDetectionWeb
       result: false,
     };
   }
+  async isFridaRunning(): Promise<JailbreakRootResult> {
+    return {
+      result: false,
+    };
+  }
   async isSimulator(): Promise<JailbreakRootResult> {
     return {
       result: false,

@@ -6,6 +6,10 @@ public class CapacitorJailbreakRootDetection {
     public boolean isJailbrokenOrRooted(boolean value) {
         return value;
     }
+    
+    public boolean isFridaRunning(boolean value) {
+        return value;
+    }
 
     public boolean isSimulator(boolean value) {
         return value;

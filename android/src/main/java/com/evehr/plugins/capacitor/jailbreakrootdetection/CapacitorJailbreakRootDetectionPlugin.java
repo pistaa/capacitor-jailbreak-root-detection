@@ -31,6 +31,15 @@ public class CapacitorJailbreakRootDetectionPlugin extends Plugin {
         ret.put("result", implementation.isJailbrokenOrRooted(result));
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void isFridaRunning(PluginCall call) {
+        boolean result = false;//rootedCheck.isFridaRunning();
+
+        JSObject ret = new JSObject();
+        ret.put("result", implementation.isFridaRunning(result));
+        call.resolve(ret);
+    }
     
     
     @PluginMethod

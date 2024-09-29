@@ -1,6 +1,8 @@
 # @evehr/capacitor-jailbreak-root-detection
 
 Jailbreak Root detection plugin for capacitor. Supports Capacior 5 and 6.
+This plugin also supports Frida Detection.
+
 a clone of @evehr/capacitor-jailbreak-root-detection repository.
 
 ## Install
@@ -14,11 +16,16 @@ npx cap sync
 
 <docgen-index>
 
-* [`isJailbrokenOrRooted()`](#isjailbrokenorrooted)
-* [`isSimulator()`](#issimulator)
-* [`isDebuggedMode()`](#isdebuggedmode)
-* [`exitApp()`](#exitapp)
-* [Interfaces](#interfaces)
+- [@evehr/capacitor-jailbreak-root-detection](#evehrcapacitor-jailbreak-root-detection)
+  - [Install](#install)
+  - [API](#api)
+    - [isJailbrokenOrRooted()](#isjailbrokenorrooted)
+    - [isFridaRunning()](#isfridarunning)
+    - [isSimulator()](#issimulator)
+    - [isDebuggedMode()](#isdebuggedmode)
+    - [exitApp()](#exitapp)
+    - [Interfaces](#interfaces)
+      - [JailbreakRootResult](#jailbreakrootresult)
 
 </docgen-index>
 
@@ -29,6 +36,17 @@ npx cap sync
 
 ```typescript
 isJailbrokenOrRooted() => Promise<JailbreakRootResult>
+```
+
+**Returns:** <code>Promise&lt;<a href="#jailbreakrootresult">JailbreakRootResult</a>&gt;</code>
+
+--------------------
+
+
+### isFridaRunning()
+
+```typescript
+isFridaRunning() => Promise<JailbreakRootResult>
 ```
 
 **Returns:** <code>Promise&lt;<a href="#jailbreakrootresult">JailbreakRootResult</a>&gt;</code>

@@ -30,6 +30,12 @@ extension UIDevice {
             return JailBrokenHelper.canEditSystemFiles()
         }
     }
+    
+    var isFridaRunning: Bool {
+        get {
+            return JailBrokenHelper.isFridaRunning()
+        }
+    }
 }
 
 private struct JailBrokenHelper {
@@ -206,6 +212,32 @@ private struct JailBrokenHelper {
         ]
     }
     
+    static func isFridaRunning() -> Bool {
+        // func swapBytesIfNeeded(port: in_port_t) -> in_port_t {
+        //     let littleEndian = Int(OSHostByteOrder()) == OSLittleEndian
+        //     return littleEndian ? _OSSwapInt16(port) : port
+        // }
+        
+        // var serverAddress = sockaddr_in()
+        // serverAddress.sin_family = sa_family_t(AF_INET)
+        // serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1")
+        // serverAddress.sin_port = swapBytesIfNeeded(port: in_port_t(27042))
+        // let sock = socket(AF_INET, SOCK_STREAM, 0)
+        
+        // let result = withUnsafePointer(to: &serverAddress) {
+        //     $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+        //         connect(sock, $0, socklen_t(MemoryLayout<sockaddr_in>.stride))
+        //     }
+        // }
+        // if result != -1 {
+        //     return true
+        // }
+        let port = UInt16(27042);
+        if(isFridaPortOpen(port: port)) { return true; }
+        if(checkDYLD()) { return true; }
+        if(detectSuspiciousLibraries()) { return true; }
+        return false
+    }
     static func checkDYLD() -> Bool {
         let suspiciousLibraries = [
             "FridaGadget",
@@ -224,27 +256,50 @@ private struct JailBrokenHelper {
         }
         return false
     }
-    
-    static func isFridaRunning() -> Bool {
-        func swapBytesIfNeeded(port: in_port_t) -> in_port_t {
-            let littleEndian = Int(OSHostByteOrder()) == OSLittleEndian
-            return littleEndian ? _OSSwapInt16(port) : port
-        }
-        
-        var serverAddress = sockaddr_in()
-        serverAddress.sin_family = sa_family_t(AF_INET)
-        serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1")
-        serverAddress.sin_port = swapBytesIfNeeded(port: in_port_t(27042))
-        let sock = socket(AF_INET, SOCK_STREAM, 0)
-        
-        let result = withUnsafePointer(to: &serverAddress) {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
-                connect(sock, $0, socklen_t(MemoryLayout<sockaddr_in>.stride))
+    static func detectSuspiciousLibraries() -> Bool{
+
+        let libraries = ["FridaGadget",
+            "frida",
+            "cynject",
+            "libcycript", "MobileSubstrate", "SubstrateLoader", "SubstrateInserter"]
+        let imageCount = _dyld_image_count();
+        for i in 0..<imageCount{
+            let imgName = String(cString: _dyld_get_image_name(i));
+            for lib in libraries {
+                if imgName.lowercased().contains(lib.lowercased()){
+                    return true
+                }
             }
         }
-        if result != -1 {
+        return false
+    }
+    
+    
+    static func isFridaPortOpen(port: in_port_t) -> Bool {
+
+        let socketFileDescriptor = socket(AF_INET, SOCK_STREAM, 0)
+        if socketFileDescriptor == -1 {
+            return false
+        }
+
+        var addr = sockaddr_in()
+        let sizeOfSockkAddr = MemoryLayout<sockaddr_in>.size
+        addr.sin_len = __uint8_t(sizeOfSockkAddr)
+        addr.sin_family = sa_family_t(AF_INET)
+        addr.sin_port = Int(OSHostByteOrder()) == OSLittleEndian ? _OSSwapInt16(port) : port
+        addr.sin_addr = in_addr(s_addr: inet_addr("127.0.0.1"))
+        addr.sin_zero = (0, 0, 0, 0, 0, 0, 0, 0)
+        var bind_addr = sockaddr()
+        memcpy(&bind_addr, &addr, Int(sizeOfSockkAddr))
+
+        if Darwin.bind(socketFileDescriptor, &bind_addr, socklen_t(sizeOfSockkAddr)) == -1 {
+            return true
+        }
+        if listen(socketFileDescriptor, SOMAXCONN ) == -1 {
             return true
         }
         return false
     }
+    
+    
 }

@@ -5,6 +5,10 @@ import Foundation
         print(value)
         return value
     }
+    @objc public func isFridaRunning(_ value: String) -> String {
+        print(value)
+        return value
+    }
 
     @objc public func isSimulator(_ value: String) -> String {
         print(value)
