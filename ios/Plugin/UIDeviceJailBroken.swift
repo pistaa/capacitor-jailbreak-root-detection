@@ -26,7 +26,7 @@ extension UIDevice {
             if JailBrokenHelper.isSuspiciousSystemPathsExists() { return true }
             if JailBrokenHelper.isDirectoriesWriteable() { return true }
             if JailBrokenHelper.checkDYLD() { return true }
-            if JailBrokenHelper.isFridaRunning() { return true }
+            // if JailBrokenHelper.isFridaRunning() { return true }
             return JailBrokenHelper.canEditSystemFiles()
         }
     }
