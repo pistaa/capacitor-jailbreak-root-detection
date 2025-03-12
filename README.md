@@ -16,16 +16,12 @@ npx cap sync
 
 <docgen-index>
 
-- [@evehr/capacitor-jailbreak-root-detection](#evehrcapacitor-jailbreak-root-detection)
-  - [Install](#install)
-  - [API](#api)
-    - [isJailbrokenOrRooted()](#isjailbrokenorrooted)
-    - [isFridaRunning()](#isfridarunning)
-    - [isSimulator()](#issimulator)
-    - [isDebuggedMode()](#isdebuggedmode)
-    - [exitApp()](#exitapp)
-    - [Interfaces](#interfaces)
-      - [JailbreakRootResult](#jailbreakrootresult)
+* [`isJailbrokenOrRooted()`](#isjailbrokenorrooted)
+* [`isFridaRunning()`](#isfridarunning)
+* [`isSimulator()`](#issimulator)
+* [`isDebuggedMode()`](#isdebuggedmode)
+* [`exitApp()`](#exitapp)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
