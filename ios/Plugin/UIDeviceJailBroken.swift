@@ -11,7 +11,8 @@ import UIKit
 import MachO
 extension UIDevice {
     var isSimulator: Bool {
-        return TARGET_OS_SIMULATOR != 0
+        return false
+        // return TARGET_OS_SIMULATOR != 0
     }
 
     var isDebuggedMode: Bool {
