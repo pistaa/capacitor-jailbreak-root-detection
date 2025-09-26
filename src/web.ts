@@ -1,6 +1,9 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { CapacitorJailbreakRootDetectionPlugin, JailbreakRootResult } from './definitions';
+import type {
+  CapacitorJailbreakRootDetectionPlugin,
+  JailbreakRootResult,
+} from './definitions';
 
 export class CapacitorJailbreakRootDetectionWeb
   extends WebPlugin

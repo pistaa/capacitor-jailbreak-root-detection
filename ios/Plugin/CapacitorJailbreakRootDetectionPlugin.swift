@@ -27,13 +27,13 @@ public class CapacitorJailbreakRootDetectionPlugin: CAPPlugin {
             "result": UIDevice.current.isSimulator
         ])
     }
-    
+
     @objc func isDebuggedMode(_ call: CAPPluginCall) {
         call.resolve([
             "result": UIDevice.current.isDebuggedMode
         ])
     }
-    
+
     @objc func exitApp(_ call: CAPPluginCall) {
         UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

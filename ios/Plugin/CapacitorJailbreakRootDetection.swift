@@ -14,7 +14,7 @@ import Foundation
         print(value)
         return value
     }
-    
+
     @objc public func isDebuggedMode(_ value: String) -> String {
         print(value)
         return value

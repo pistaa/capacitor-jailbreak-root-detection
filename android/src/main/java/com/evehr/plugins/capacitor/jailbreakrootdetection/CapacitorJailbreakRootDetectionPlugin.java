@@ -1,18 +1,17 @@
 package com.pistaa.plugins.capacitor.jailbreakrootdetection;
 
+import android.content.Context;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
-
-import android.content.Context;
-
-import com.pistaa.plugins.capacitor.jailbreakrootdetection.Rooted.RootedCheck;
 import com.pistaa.plugins.capacitor.jailbreakrootdetection.Rooted.EmulatorDetector;
+import com.pistaa.plugins.capacitor.jailbreakrootdetection.Rooted.RootedCheck;
 
 @CapacitorPlugin(name = "CapacitorJailbreakRootDetection")
 public class CapacitorJailbreakRootDetectionPlugin extends Plugin {
+
     private CapacitorJailbreakRootDetection implementation = new CapacitorJailbreakRootDetection();
     private RootedCheck rootedCheck;
     private EmulatorDetector emulatorDetector;
@@ -34,14 +33,13 @@ public class CapacitorJailbreakRootDetectionPlugin extends Plugin {
 
     @PluginMethod
     public void isFridaRunning(PluginCall call) {
-        boolean result = false;//rootedCheck.isFridaRunning();
+        boolean result = false; //rootedCheck.isFridaRunning();
 
         JSObject ret = new JSObject();
         ret.put("result", implementation.isFridaRunning(result));
         call.resolve(ret);
     }
-    
-    
+
     @PluginMethod
     public void isSimulator(PluginCall call) {
         boolean result = emulatorDetector.isEmulator();
@@ -50,8 +48,7 @@ public class CapacitorJailbreakRootDetectionPlugin extends Plugin {
         ret.put("result", implementation.isSimulator(result));
         call.resolve(ret);
     }
-    
-    
+
     @PluginMethod
     public void isDebuggedMode(PluginCall call) {
         boolean result = emulatorDetector.isDebuggedMode();

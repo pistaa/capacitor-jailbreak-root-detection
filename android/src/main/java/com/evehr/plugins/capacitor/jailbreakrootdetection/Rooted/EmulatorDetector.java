@@ -33,11 +33,13 @@ public class EmulatorDetector {
     public boolean isDebuggedMode() {
         boolean result = false;
         try {
-            if ((context.getPackageManager().getPackageInfo(context.getPackageName(), 0).
-                    applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0)
-                result = true;
-            else
-                result = false;
+            if (
+                (
+                    context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.flags &
+                    ApplicationInfo.FLAG_DEBUGGABLE
+                ) !=
+                0
+            ) result = true; else result = false;
         } catch (PackageManager.NameNotFoundException e) {
             result = false;
         }

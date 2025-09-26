@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RootedCheck {
+
     private static boolean checkWithJailMonkeyMethod() {
         CheckApiVersion check;
 
@@ -39,6 +40,7 @@ public class RootedCheck {
     }
 
     private static class RootBeerResults {
+
         private final boolean detectRootManagementApps;
         private final boolean detectPotentiallyDangerousApps;
         private final boolean checkForSuBinary;
@@ -65,9 +67,17 @@ public class RootedCheck {
         }
 
         public boolean isJailBroken() {
-            return detectRootManagementApps || detectPotentiallyDangerousApps || checkForSuBinary
-                    || checkForDangerousProps || checkForRWPaths
-                    || detectTestKeys || checkSuExists || checkForRootNative || checkForMagiskBinary;
+            return (
+                detectRootManagementApps ||
+                detectPotentiallyDangerousApps ||
+                checkForSuBinary ||
+                checkForDangerousProps ||
+                checkForRWPaths ||
+                detectTestKeys ||
+                checkSuExists ||
+                checkForRootNative ||
+                checkForMagiskBinary
+            );
         }
 
         public Map<String, Object> toNativeMap() {
