@@ -1,4 +1,4 @@
-package com.evehr.plugins.capacitor.jailbreakrootdetection;
+package com.pistaa.plugins.capacitor.jailbreakrootdetection;
 
 import android.util.Log;
 

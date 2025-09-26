@@ -1,4 +1,4 @@
-package com.evehr.plugins.capacitor.jailbreakrootdetection;
+package com.pistaa.plugins.capacitor.jailbreakrootdetection;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
@@ -8,8 +8,8 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 
 import android.content.Context;
 
-import com.evehr.plugins.capacitor.jailbreakrootdetection.Rooted.RootedCheck;
-import com.evehr.plugins.capacitor.jailbreakrootdetection.Rooted.EmulatorDetector;
+import com.pistaa.plugins.capacitor.jailbreakrootdetection.Rooted.RootedCheck;
+import com.pistaa.plugins.capacitor.jailbreakrootdetection.Rooted.EmulatorDetector;
 
 @CapacitorPlugin(name = "CapacitorJailbreakRootDetection")
 public class CapacitorJailbreakRootDetectionPlugin extends Plugin {

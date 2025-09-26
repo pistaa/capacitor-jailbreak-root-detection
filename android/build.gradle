@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    namespace "com.evehr.plugins.capacitor.jailbreakrootdetection"
+    namespace "com.pistaa.plugins.capacitor.jailbreakrootdetection"
     compileSdk project.hasProperty('compileSdk') ? rootProject.ext.compileSdkVersion : 34
     defaultConfig {
         minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 23

@@ -1,5 +1,5 @@
 {
-  "name": "@aalzehla/capacitor-jailbreak-root-detection",
+  "name": "@pistaa/capacitor-jailbreak-root-detection",
   "version": "1.0.5",
   "description": "Jailbreak Root detection plugin for capacitor.",
   "main": "dist/plugin.cjs.js",
@@ -11,16 +11,16 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "AalzehlaCapacitorJailbreakRootDetection.podspec"
+    "PistaaCapacitorJailbreakRootDetection.podspec"
   ],
   "author": "Ateik Alzehla",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aalzehla/capacitor-jailbreak-root-detection.git.git"
+    "url": "git+https://github.com/pistaa/capacitor-jailbreak-root-detection.git"
   },
   "bugs": {
-    "url": "https://github.com/aalzehla/capacitor-jailbreak-root-detection.git/issues"
+    "url": "https://github.com/pistaa/capacitor-jailbreak-root-detection/issues"
   },
   "keywords": [
     "capacitor",

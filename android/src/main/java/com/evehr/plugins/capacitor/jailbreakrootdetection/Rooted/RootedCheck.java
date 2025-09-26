@@ -1,4 +1,4 @@
-package com.evehr.plugins.capacitor.jailbreakrootdetection.Rooted;
+package com.pistaa.plugins.capacitor.jailbreakrootdetection.Rooted;
 
 import android.content.Context;
 import com.scottyab.rootbeer.RootBeer;

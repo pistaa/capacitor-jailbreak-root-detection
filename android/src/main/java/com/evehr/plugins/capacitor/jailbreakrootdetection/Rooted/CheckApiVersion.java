@@ -1,4 +1,4 @@
-package com.evehr.plugins.capacitor.jailbreakrootdetection.Rooted;
+package com.pistaa.plugins.capacitor.jailbreakrootdetection.Rooted;
 
 public interface CheckApiVersion {
     boolean checkRooted();

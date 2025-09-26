@@ -1,14 +1,14 @@
-# @evehr/capacitor-jailbreak-root-detection
+# @pistaa/capacitor-jailbreak-root-detection
 
 Jailbreak Root detection plugin for capacitor. Supports Capacior 5 and 6.
 This plugin also supports Frida Detection.
 
-a clone of @evehr/capacitor-jailbreak-root-detection repository.
+a clone of @aalzehla/capacitor-jailbreak-root-detection repository.
 
 ## Install
 
 ```bash
-npm install @evehr/capacitor-jailbreak-root-detection
+npm install @pistaa/capacitor-jailbreak-root-detection
 npx cap sync
 ```
 
